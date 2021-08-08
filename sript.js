@@ -3,11 +3,25 @@ const quoteText = document.getElementById('quote');
 const authorText = document.getElementById('author');
 const twitterButton = document.getElementById('twitter');
 const newQuoteButton = document.getElementById('new-quote');
+const loader = document.getElementById('loader');
 
 
 
 
 let apiQuotes =[];
+
+//Show loading
+const loading=()=>{
+    loader.hidden = false;
+    quoteContainer.hidden =true;
+}
+
+//Hide loading
+
+const complete=()=>{
+    quoteContainer.hidden =false;
+    loader.hidden = true;
+}
 //Show New Quote
 const newQuotes=()=>{
     //Picking Random Quote
@@ -60,4 +74,6 @@ newQuoteButton.addEventListener('click',newQuotes);
 twitterButton.addEventListener('click',tweetQuote)
 
 //On Load
-getQuotes();
+// getQuotes();
+// loading();
+// complete();
