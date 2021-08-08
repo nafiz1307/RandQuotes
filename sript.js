@@ -24,6 +24,7 @@ const complete=()=>{
 }
 //Show New Quote
 const newQuotes=()=>{
+    loading();
     //Picking Random Quote
     const quote = apiQuotes[Math.floor(Math.random()*apiQuotes.length)];
     //Checking for author
@@ -44,6 +45,7 @@ const newQuotes=()=>{
     }
 
     quoteText.textContent = quote.text;
+    complete();
 }
 
 
@@ -51,6 +53,7 @@ const newQuotes=()=>{
 
 //Get Quote
 const getQuotes= async()=>{
+    loading();
     const apiUrl = 'https://type.fit/api/quotes';
     try{
         const response = await fetch(apiUrl);
@@ -74,6 +77,4 @@ newQuoteButton.addEventListener('click',newQuotes);
 twitterButton.addEventListener('click',tweetQuote)
 
 //On Load
-// getQuotes();
-// loading();
-// complete();
+getQuotes();
